@@ -1,6 +1,11 @@
 package edu.elsmancs.pruebaArtectoRefactor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Logica {
 	private String loren = "";
@@ -39,5 +44,19 @@ public class Logica {
 			if (palabra.reverse().toString().equals(w)) {listaPal.add(w);}
 		}
 		return listaPal;
+	}
+	
+	private Map<String, Integer> generarMapa(Object [] arr) {
+		
+		Map<String, Integer> tabla = new HashMap<String, Integer>();
+		
+		for (Object palabra : arr) {
+			int suma = (int)Stream.of(arr).filter(w -> w.equals(palabra)).count();
+			if (!tabla.containsKey(palabra)) tabla.put((String) palabra, suma);
+		}
+		
+		return tabla.entrySet().stream()
+							   .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(5)
+							   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 	}
 }
