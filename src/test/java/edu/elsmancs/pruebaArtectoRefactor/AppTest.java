@@ -8,6 +8,7 @@ import org.junit.Test;
 
 
 
+
 /**
  * Unit test for simple App.
  */
@@ -49,5 +50,13 @@ public class AppTest
     	String [] arrTexto = {"hola", "amigo", "arteco", "mola"};
     	Logica logica = new Logica(texto);
     	assertArrayEquals(arrTexto, logica.getArr());
+    }
+    
+    @Test
+    public void ListaPalindromosTest() {
+    	String texto = "Hola ala ele";
+    	String [] arrTexto = {"ala", "ele"};
+    	Logica logica = new Logica(texto);
+    	assertArrayEquals(arrTexto, logica.listarPalindromos().toArray());
     }
 }
