@@ -1,5 +1,7 @@
 package edu.elsmancs.pruebaArtectoRefactor;
 
+import java.util.ArrayList;
+
 public class Logica {
 	private String loren = "";
 	private String [] arrLoren = null;
@@ -28,5 +30,14 @@ public class Logica {
 		StringBuilder texto = new StringBuilder();
 		loren.chars().mapToObj(c -> (char)c).filter(c -> c != ',' && c != '.' && c != '\n' && c != ';' ).forEach(c -> texto.append(c));
 		arrLoren = texto.toString().split(" ");
+	}
+	
+	public ArrayList<String> listarPalindromos() {
+		ArrayList<String> listaPal = new ArrayList<String>();
+		for (String w : arrLoren) {
+			StringBuilder palabra = new StringBuilder(w);
+			if (palabra.reverse().toString().equals(w)) {listaPal.add(w);}
+		}
+		return listaPal;
 	}
 }
