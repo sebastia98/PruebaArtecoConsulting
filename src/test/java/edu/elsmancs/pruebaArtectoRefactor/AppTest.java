@@ -3,6 +3,9 @@ package edu.elsmancs.pruebaArtectoRefactor;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.junit.Test;
 
 
@@ -58,5 +61,16 @@ public class AppTest
     	String [] arrTexto = {"ala", "ele"};
     	Logica logica = new Logica(texto);
     	assertArrayEquals(arrTexto, logica.listarPalindromos().toArray());
+    }
+    
+    @Test
+    public void contarRepetidasTest() {
+    	String texto = "Amigo sdjn amigo uidnce wic hola diub hola idueb hola idcu y y y y ifuvb de de de de de de ucebi casa casa icei casa casa casa";
+    	Map<String, Integer> tabla = new LinkedHashMap<String, Integer>();
+    	tabla.put("de", 6); tabla.put("casa", 5); tabla.put("y", 4); 
+    	tabla.put("hola", 3); tabla.put("amigo", 2);
+    	Logica logica = new Logica(texto);
+    	assertArrayEquals(tabla.keySet().toArray(), logica.contarRepetidas().keySet().toArray());
+    	assertArrayEquals(tabla.values().toArray(), logica.contarRepetidas().values().toArray());
     }
 }
