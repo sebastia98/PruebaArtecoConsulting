@@ -12,6 +12,7 @@ import org.junit.Test;
 
 
 
+
 /**
  * Unit test for simple App.
  */
@@ -72,5 +73,20 @@ public class AppTest
     	Logica logica = new Logica(texto);
     	assertArrayEquals(tabla.keySet().toArray(), logica.contarRepetidas().keySet().toArray());
     	assertArrayEquals(tabla.values().toArray(), logica.contarRepetidas().values().toArray());
+    }
+    
+    @Test
+    public void contarTuplasRepetidasTest() {
+    	String texto = "Amigo mio ddhs amigo mio diurb amigo mio dieb amigo mio ivb amigo mio iucb amigo mio, drub "
+    			     + "casa blanca fhbe casa blanca ucdv casa blanca cjdv casa blanca ucdb casa blanca vf "
+    			     + "hola hola dcibc hola hola iubdx hola hola sbw hola hola iucdb "
+    			     + "toma toma dib toma toma iuxieu toma toma ciueb "
+    			     + "sin blanca diub sin blanca.";
+    	Map<String, Integer> tabla = new LinkedHashMap<String, Integer>();
+    	tabla.put("amigo mio", 6); tabla.put("casa blanca", 5); tabla.put("hola hola", 4); 
+    	tabla.put("toma toma", 3); tabla.put("sin blanca", 2);
+    	Logica logica = new Logica(texto);
+    	assertArrayEquals(tabla.keySet().toArray(), logica.contarTuplasRepetidas().keySet().toArray());
+    	assertArrayEquals(tabla.values().toArray(), logica.contarTuplasRepetidas().values().toArray());
     }
 }
