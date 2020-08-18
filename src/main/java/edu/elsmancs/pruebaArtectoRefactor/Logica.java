@@ -6,4 +6,8 @@ public class Logica {
 	public Logica (String loren) {
 		this.loren = loren.toLowerCase();
 	}
+	
+	public int contarPalabras() {
+		return (int)this.loren.chars().filter(c -> c == ' ').count();
+	}
 }
