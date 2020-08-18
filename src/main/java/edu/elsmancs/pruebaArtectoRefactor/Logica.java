@@ -59,4 +59,8 @@ public class Logica {
 							   .sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).limit(5)
 							   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 	}
+	
+	public Map<String, Integer> contarRepetidas(){
+		return generarMapa(arrLoren);
+	}
 }
