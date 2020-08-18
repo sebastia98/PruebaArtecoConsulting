@@ -16,6 +16,13 @@ public class Logica {
 		this.generarLista();
 	}
 	
+	public String toString() {
+		return "Este texto tiene " + this.contarPalabras() + " palabras, " + this.contarFrases() + " frases y " + this.contarParrafos()  + " párrafos.\n"
+			 + "Este texto tiene " + this.listarPalindromos().size() + " palíndromas y son estas: " + this.listarPalindromos() + "\n"
+			 + "Estas son sus palabras más usadas: " + this.contarRepetidas() + "\n"
+			 + "Estas son sus tuplas (de dos palabras) más usadas: " + this.contarTuplasRepetidas();
+	}
+	
 	public String[] getArr() {
 		return arrLoren;
 	}
