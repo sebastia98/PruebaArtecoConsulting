@@ -1,8 +1,11 @@
 package edu.elsmancs.pruebaArtectoRefactor;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import edu.elsmancs.ArtecoRefactorizado.Logica;
 
 
 
@@ -39,5 +42,13 @@ public class AppTest
     			     + "Debe, tener, 3 frases. \n";
     	Logica logica = new Logica(texto);
     	assertTrue(4 == logica.contarParrafos());
+    }
+    
+    @Test
+    public void generarListaTest() {
+    	String texto = "Hola .amigo Arteco, mola; \n";
+    	String [] arrTexto = {"hola", "amigo", "arteco", "mola"};
+    	Logica logica = new Logica(texto);
+    	assertArrayEquals(arrTexto, logica.getArr());
     }
 }
