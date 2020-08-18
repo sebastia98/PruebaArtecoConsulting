@@ -60,7 +60,23 @@ public class Logica {
 							   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 	}
 	
+	private ArrayList<String> generarTuplas() {
+		ArrayList<String> listaTuplas = new ArrayList<String>();
+		for (int i = 0; i < arrLoren.length; i++) {
+			String tupla = "";
+			try {
+				tupla = arrLoren[i] + " " + arrLoren[i + 1];
+				listaTuplas.add(tupla);
+			} catch (Exception e) {}
+		}
+		return listaTuplas;
+	}
+	
 	public Map<String, Integer> contarRepetidas(){
 		return generarMapa(arrLoren);
+	}
+	
+	public Map<String, Integer> contarTuplasRepetidas(){
+		return generarMapa(generarTuplas().toArray());
 	}
 }
